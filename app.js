@@ -6,11 +6,9 @@ const app = express();
 if (process.env.ENV === 'Test') {
   console.log('This is a test');
   const db = mongoose.connect('mongodb://localhost/bookAPI_Test', { useNewUrlParser: true });
-}
-else {
-console.log('This is for real');
-const db = mongoose.connect('mongodb://localhost/bookAPI_Pros', { useNewUrlParser: true });
-
+} else {
+  console.log('This is for real');
+  const db = mongoose.connect('mongodb://localhost/bookAPI', { useNewUrlParser: true });
 }
 const port = process.env.PORT || 3000;
 const Book = require('./models/bookModel');

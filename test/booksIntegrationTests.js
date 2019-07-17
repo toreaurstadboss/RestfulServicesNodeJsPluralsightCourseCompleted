@@ -13,7 +13,7 @@ describe('Book Crud Test', () => {
     const bookPost = { title: 'My Integration Test book', author: 'Jon', genre: 'Fiction' };
     agent.post('/api/books').send(bookPost).expect(200).end((err, results) => {
       console.log('Inside post');
-      
+
       // results.body.read.should.not.equal('false');
       results.body.should.have.property('_id');
       done();
@@ -29,5 +29,4 @@ describe('Book Crud Test', () => {
     mongoose.connection.close();
     app.server.close(done());
   });
-
 });
